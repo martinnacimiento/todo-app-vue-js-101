@@ -17,12 +17,12 @@ const items = computed(() => {
 
 const handlerEnter = (e) => {
   if (e.key === 'Enter' || e.keyCode === 13) {
+    value.value = ''
     tasks.value.push({
       id: tasks.value.length,
       name: e.target.value,
       completed: false,
     })
-    value.value = ''
   }
 }
 
@@ -35,34 +35,31 @@ const changeOption = (value) => (option.value = value)
 
 <template>
   <div
-    class="flex flex-col justify-center items-center h-screen w-full bg-slate-100"
+    class="flex flex-col justify-center items-center h-screen w-full bg-nucba-black"
   >
-    <div class="w-2/5">
+    <div :class="`w-full p-4 md:w-2/5 ${value === '' ? 'animate-fade' : ''}`">
       <Input
         label="Tasks"
-        placeholder="Lavar la ropa.."
+        placeholder="Escriba aqui el nombre de su tarea"
         v-model="value"
         @handlerEnter="handlerEnter"
       />
     </div>
 
     <div
-      v-if="items.length > 0"
-      class="w-2/5 bg-white shadow-md rounded-sm p-2 flex-shrink overflow-auto h-96"
+      v-show="items.length > 0"
+      class="w-full p-4 md:w-2/5 bg-nucba-black text-white shadow-md rounded-sm flex-shrink overflow-auto h-96 animate-swipUp"
     >
       <TaskList :tasks="items" @markCompleted="markCompleted" />
     </div>
 
     <div
-      v-if="tasks.length > 0"
-      class="w-2/5 bg-white shadow-md rounded-sm p-2 overflow-auto"
+      v-show="tasks.length > 0"
+      class="w-full p-4 md:w-2/5 bg-nucba-black text-white shadow-md rounded-sm overflow-auto animate-swipUp"
     >
-      <div class="flex justify-between p-2 border-b-2 border-b-slate-400">
-        <div>Total: {{ items.length }}</div>
+      <div class="flex justify-between p-2 py-4 border-b-2 border-b-slate-400">
+        <div class="text-sm">Total: {{ items.length }}</div>
         <SelectType :option="option" @changeOption="changeOption" />
-        <div>
-          <button>Clear completed</button>
-        </div>
       </div>
     </div>
   </div>

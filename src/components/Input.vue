@@ -1,19 +1,16 @@
 <template>
-  <label
-    for="task"
-    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-    >{{ label }}</label
-  >
-  <input
-    type="text"
-    id="task"
-    class="shadow-md rounded-sm bg-white border text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-    :placeholder="placeholder"
-    required
-    :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
-    @keyup="$emit('handlerEnter', $event)"
-  />
+  <div class="pb-1 bg-nucba-gradient">
+    <input
+      type="text"
+      id="task"
+      class="shadow-md bg-nucba-black text-white text-sm focus:border-none active:border-none focus-visible:border-none focus-visible:outline-none block w-full p-2.5"
+      :placeholder="placeholder"
+      required
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+      @keyup="$emit('handlerEnter', $event)"
+    />
+  </div>
 </template>
 
 <script setup>

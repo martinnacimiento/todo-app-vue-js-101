@@ -1,4 +1,5 @@
 <script setup>
+import SelectionType from './SelectionType.vue';
 defineProps({
   option: {
     type: String,
@@ -10,29 +11,24 @@ defineEmits(['changeOption'])
 </script>
 
 <template>
-  <div>
-    <span
-      :class="`mr-2 ${
-        option === 'all' ? 'rounded-md p-2 border-2 border-violet-500' : ''
-      }`"
-      @click="$emit('changeOption', 'all')"
-      >All</span
-    >
-    <span
-      :class="`mr-2 ${
-        option === 'actives' ? 'rounded-md p-2 border-2 border-violet-500' : ''
-      }`"
-      @click="$emit('changeOption', 'actives')"
-      >Actives</span
-    >
-    <span
-      :class="`mr-2 ${
-        option === 'completed'
-          ? 'rounded-md p-2 border-2 border-violet-500'
-          : ''
-      }`"
-      @click="$emit('changeOption', 'completed')"
-      >Completed</span
-    >
+  <div class="flex w-10/12 justify-around items-center gap-2">
+    <SelectionType
+      :option="option"
+      @change-option="(value) => $emit('changeOption', value)"
+      type="all"
+      label="All"
+    />
+    <SelectionType
+      :option="option"
+      @change-option="(value) => $emit('changeOption', value)"
+      type="actives"
+      label="Actives"
+    />
+    <SelectionType
+      :option="option"
+      @change-option="(value) => $emit('changeOption', value)"
+      type="completed"
+      label="Completed"
+    />
   </div>
 </template>
