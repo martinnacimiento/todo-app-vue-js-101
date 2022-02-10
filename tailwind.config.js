@@ -12,6 +12,7 @@ module.exports = {
       animation: {
         swipIn: 'swipIn 1s ease-in-out',
         swipUp: 'swipUp 0.5s ease-in-out',
+        rotate: 'rotate 1s linear',
         fade: 'fade 1s ease-out',
       },
       keyframes: {
@@ -42,6 +43,11 @@ module.exports = {
           '100%': {
             opacity: 1,
           }
+        },
+        rotate: {
+          '100%': {
+            transform: 'rotate(365deg)'
+          },
         }
       }
     },

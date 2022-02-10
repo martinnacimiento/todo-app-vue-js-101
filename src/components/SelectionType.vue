@@ -19,12 +19,12 @@ defineEmits(['changeOption'])
 
 <template>
   <div
-    :class="`p-[.90px] ${
+    :class="`p-[2px] rounded-md ${
       option === type ? 'bg-nucba-gradient' : 'bg-nucba-black'
     }`"
   >
     <div
-      class="mr-2 text-xs bg-nucba-black w-full text-center"
+      class="px-2 text-xs bg-nucba-black w-full text-center"
       @click="$emit('changeOption', type)"
     >
       {{ label }}
