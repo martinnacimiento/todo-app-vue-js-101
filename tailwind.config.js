@@ -19,22 +19,22 @@ module.exports = {
         swipIn: {
           '0%': {
             left: '-1000px',
-            position: 'relative'
+            position: 'relative',
           },
           '100%': {
             left: '0px',
-            position: 'relative'
-          }
+            position: 'relative',
+          },
         },
         swipUp: {
           '0%': {
             bottom: '-1000px',
-            position: 'relative'
+            position: 'relative',
           },
           '100%': {
             bottom: '0px',
-            position: 'relative'
-          }
+            position: 'relative',
+          },
         },
         fade: {
           '0%': {
@@ -42,14 +42,14 @@ module.exports = {
           },
           '100%': {
             opacity: 1,
-          }
+          },
         },
         rotate: {
           '100%': {
-            transform: 'rotate(365deg)'
+            transform: 'rotate(365deg)',
           },
-        }
-      }
+        },
+      },
     },
   },
   plugins: [],
